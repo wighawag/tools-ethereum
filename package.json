@@ -1,6 +1,6 @@
 {
 	"name": "tools-ethereum",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"description": "tools for ethereum via cli, including an mcp server",
 	"author": "Ronan Sandford",
 	"license": "MIT",
@@ -46,6 +46,7 @@
 		"@modelcontextprotocol/sdk": "^1.25.3",
 		"commander": "^14.0.3",
 		"eip-1193": "^0.6.5",
+		"ldenv": "^0.3.16",
 		"remote-procedure-call": "^0.1.1",
 		"viem": "^2.45.1",
 		"zod": "^4.3.6"
@@ -55,7 +56,6 @@
 		"@types/node": "^25.2.0",
 		"as-soon": "^0.1.5",
 		"cross-env": "^10.1.0",
-		"ldenv": "^0.3.16",
 		"prettier": "^3.8.0",
 		"prool": "^0.2.2",
 		"tsx": "^4.21.0",

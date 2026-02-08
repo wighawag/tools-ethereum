@@ -7,6 +7,8 @@ import {EnvFactory, registerAllToolCommands} from './tool-handling/cli.js';
 import * as tools from './tools/index.js';
 import {EthereumEnv} from './types.js';
 import {createEthereumEnv} from './index.js';
+import {loadEnv} from 'ldenv';
+loadEnv();
 
 export const program = new Command();
 

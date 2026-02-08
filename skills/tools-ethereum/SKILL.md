@@ -21,6 +21,8 @@ ecli --rpc-url $RPC_URL get_balance --address 0x...
 
 ### Configuration
 
+you can either provided the env via your shell
+
 ```bash
 # Set RPC endpoint (required for all commands)
 export ECLI_RPC_URL=https://eth-mainnet.g.alchemy.com/v2/YOUR_KEY
@@ -31,6 +33,8 @@ export ECLI_PRIVATE_KEY=0x...
 # Query example
 ecli --rpc-url $RPC_URL get_balance --address 0x742d35Cc6634C0532925a3b844Bc9e7595f5a321
 ```
+
+or by using .env / .env.local file that the cli read automatically
 
 All commands output JSON. Parse with `jq` or process programmatically.
 
