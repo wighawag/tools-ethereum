@@ -38,7 +38,7 @@ describe('CLI - Query Tools', () => {
 		it('should get transaction by hash', async () => {
 			const {stdout, exitCode} = await invokeCliCommand([
 				'get_transaction',
-				'--txHash',
+				'--tx-hash',
 				txHash,
 				'--rpc-url',
 				RPC_URL,
@@ -54,7 +54,7 @@ describe('CLI - Query Tools', () => {
 		it('should get transaction with blockTag parameter', async () => {
 			const {stdout, exitCode} = await invokeCliCommand([
 				'get_transaction',
-				'--txHash',
+				'--tx-hash',
 				txHash,
 				'--rpc-url',
 				RPC_URL,
@@ -70,7 +70,7 @@ describe('CLI - Query Tools', () => {
 
 			const {stderr, exitCode} = await invokeCliCommand([
 				'get_transaction',
-				'--txHash',
+				'--tx-hash',
 				fakeTxHash,
 				'--rpc-url',
 				RPC_URL,
@@ -102,7 +102,7 @@ describe('CLI - Query Tools', () => {
 				'get_transaction_count',
 				'--address',
 				TEST_ADDRESS,
-				'--blockTag',
+				'--block-tag',
 				'latest',
 				'--rpc-url',
 				RPC_URL,
@@ -121,7 +121,7 @@ describe('CLI - Query Tools', () => {
 			// as it will just return an empty array
 			const {stdout, exitCode} = await invokeCliCommand([
 				'get_transaction_logs',
-				'--txHash',
+				'--tx-hash',
 				txHash,
 				'--rpc-url',
 				RPC_URL,
@@ -138,7 +138,7 @@ describe('CLI - Query Tools', () => {
 		it('should get logs for a contract address', async () => {
 			const {stdout, exitCode} = await invokeCliCommand([
 				'get_contract_logs',
-				'--contractAddress',
+				'--contract-address',
 				TEST_CONTRACT_ADDRESS,
 				'--rpc-url',
 				RPC_URL,
@@ -153,9 +153,9 @@ describe('CLI - Query Tools', () => {
 		it('should get logs with fromBlock parameter', async () => {
 			const {stdout, exitCode} = await invokeCliCommand([
 				'get_contract_logs',
-				'--contractAddress',
+				'--contract-address',
 				TEST_CONTRACT_ADDRESS,
-				'--fromBlock',
+				'--from-block',
 				'0',
 				'--rpc-url',
 				RPC_URL,
@@ -170,9 +170,9 @@ describe('CLI - Query Tools', () => {
 		it('should get logs with toBlock parameter', async () => {
 			const {stdout, exitCode} = await invokeCliCommand([
 				'get_contract_logs',
-				'--contractAddress',
+				'--contract-address',
 				TEST_CONTRACT_ADDRESS,
-				'--toBlock',
+				'--to-block',
 				'latest',
 				'--rpc-url',
 				RPC_URL,
@@ -189,9 +189,9 @@ describe('CLI - Query Tools', () => {
 		it('should get logs with eventAbis parameter', async () => {
 			const {stdout, exitCode} = await invokeCliCommand([
 				'get_contract_logs',
-				'--contractAddress',
+				'--contract-address',
 				TEST_CONTRACT_ADDRESS,
-				'--eventAbis',
+				'--event-abis',
 				// Escape commas with backslash to prevent comma-separated array parsing
 				'event Transfer(address indexed from\\, address indexed to\\, uint256 amount)',
 				'--rpc-url',
@@ -207,11 +207,11 @@ describe('CLI - Query Tools', () => {
 		it('should get logs with fromBlock and toBlock parameters', async () => {
 			const {stdout, exitCode} = await invokeCliCommand([
 				'get_contract_logs',
-				'--contractAddress',
+				'--contract-address',
 				TEST_CONTRACT_ADDRESS,
-				'--fromBlock',
+				'--from-block',
 				'0',
-				'--toBlock',
+				'--to-block',
 				'latest',
 				'--rpc-url',
 				RPC_URL,
@@ -228,9 +228,9 @@ describe('CLI - Query Tools', () => {
 		it('should get logs with event parameter (full event signature)', async () => {
 			const {stdout, exitCode} = await invokeCliCommand([
 				'get_contract_logs',
-				'--contractAddress',
+				'--contract-address',
 				TEST_CONTRACT_ADDRESS,
-				'--eventAbis',
+				'--event-abis',
 				// Escape commas with backslash to prevent comma-separated array parsing
 				'event Transfer(address indexed from\\, address indexed to\\, uint256 amount)',
 				'--rpc-url',

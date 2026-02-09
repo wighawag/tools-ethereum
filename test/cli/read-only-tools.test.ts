@@ -39,7 +39,7 @@ describe('CLI - Read-Only Tools', () => {
 				'get_balance',
 				'--address',
 				TEST_ADDRESS,
-				'--blockTag',
+				'--block-tag',
 				'latest',
 				'--rpc-url',
 				RPC_URL,
@@ -111,7 +111,7 @@ describe('CLI - Read-Only Tools', () => {
 		it('should get block by number', async () => {
 			const {stdout, exitCode} = await invokeCliCommand([
 				'get_block',
-				'--blockNumber',
+				'--block-number',
 				'0',
 				'--rpc-url',
 				RPC_URL,
@@ -126,9 +126,9 @@ describe('CLI - Read-Only Tools', () => {
 		it('should get block with transactions', async () => {
 			const {stdout, exitCode} = await invokeCliCommand([
 				'get_block',
-				'--blockNumber',
+				'--block-number',
 				'0',
-				'--includeTransactions',
+				'--include-transactions',
 				'--rpc-url',
 				RPC_URL,
 			]);
@@ -142,7 +142,7 @@ describe('CLI - Read-Only Tools', () => {
 			// First get a block to get its hash
 			const {stdout: blockStdout} = await invokeCliCommand([
 				'get_block',
-				'--blockNumber',
+				'--block-number',
 				'0',
 				'--rpc-url',
 				RPC_URL,
@@ -153,7 +153,7 @@ describe('CLI - Read-Only Tools', () => {
 			// Now get the same block by hash
 			const {stdout, exitCode} = await invokeCliCommand([
 				'get_block',
-				'--blockHash',
+				'--block-hash',
 				blockHash,
 				'--rpc-url',
 				RPC_URL,
@@ -187,7 +187,7 @@ describe('CLI - Read-Only Tools', () => {
 				'get_code',
 				'--address',
 				TEST_ADDRESS,
-				'--blockTag',
+				'--block-tag',
 				'latest',
 				'--rpc-url',
 				RPC_URL,
@@ -253,11 +253,11 @@ describe('CLI - Read-Only Tools', () => {
 		it('should get fee history for EIP-1559 pricing', async () => {
 			const {stdout, exitCode} = await invokeCliCommand([
 				'get_fee_history',
-				'--blockCount',
+				'--block-count',
 				'4',
-				'--newestBlock',
+				'--newest-block',
 				'latest',
-				'--rewardPercentiles',
+				'--reward-percentiles',
 				'25,50,75',
 				'--rpc-url',
 				RPC_URL,
@@ -272,11 +272,11 @@ describe('CLI - Read-Only Tools', () => {
 		it('should get fee history with newestBlock as number', async () => {
 			const {stdout, exitCode} = await invokeCliCommand([
 				'get_fee_history',
-				'--blockCount',
+				'--block-count',
 				'4',
-				'--newestBlock',
+				'--newest-block',
 				'0',
-				'--rewardPercentiles',
+				'--reward-percentiles',
 				'25,50,75',
 				'--rpc-url',
 				RPC_URL,

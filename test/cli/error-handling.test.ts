@@ -16,12 +16,12 @@ describe('CLI - Error Handling', () => {
 			expect(stderr).toContain('--address');
 		});
 
-		it('should show error when missing required --txHash parameter', async () => {
+		it('should show error when missing required --tx-hash parameter', async () => {
 			const {stderr, exitCode} = await invokeCliCommand(['get_transaction']);
 
 			expect(exitCode).toBe(1);
 			expect(stderr).toContain('required');
-			expect(stderr).toContain('--txHash');
+			expect(stderr).toContain('--tx-hash');
 		});
 
 		it('should show error when missing required --to parameter for send_transaction', async () => {
@@ -95,7 +95,7 @@ describe('CLI - Error Handling', () => {
 				'get_balance',
 				'--address',
 				TEST_ADDRESS,
-				'--blockTag',
+				'--block-tag',
 				'invalid',
 				'--rpc-url',
 				'http://localhost:8545',
@@ -157,7 +157,7 @@ describe('CLI - Error Handling', () => {
 
 			const {stderr, exitCode} = await invokeCliCommand([
 				'get_transaction',
-				'--txHash',
+				'--tx-hash',
 				fakeTxHash,
 				'--rpc-url',
 				'http://localhost:8545',
@@ -206,11 +206,11 @@ describe('CLI - Error Handling', () => {
 		it('should handle number parameters correctly', async () => {
 			const {stderr, exitCode} = await invokeCliCommand([
 				'get_fee_history',
-				'--blockCount',
+				'--block-count',
 				'invalid',
-				'--newestBlock',
+				'--newest-block',
 				'latest',
-				'--rewardPercentiles',
+				'--reward-percentiles',
 				'25',
 				'--rpc-url',
 				'http://localhost:8545',
@@ -223,11 +223,11 @@ describe('CLI - Error Handling', () => {
 		it('should handle array parameters correctly', async () => {
 			const {stderr, exitCode} = await invokeCliCommand([
 				'get_fee_history',
-				'--blockCount',
+				'--block-count',
 				'4',
-				'--newestBlock',
+				'--newest-block',
 				'latest',
-				'--rewardPercentiles',
+				'--reward-percentiles',
 				'invalid',
 				'--rpc-url',
 				'http://localhost:8545',

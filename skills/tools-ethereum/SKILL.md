@@ -78,21 +78,21 @@ ecli --rpc-url $RPC_URL get_balance --address 0x...
 ### Get Block Info
 ```bash
 # By number
-ecli --rpc-url $RPC_URL get_block --blockNumber 18000000 
+ecli --rpc-url $RPC_URL get_block --block-number 18000000 
 
 # By hash  
-ecli --rpc-url $RPC_URL get_block --blockHash 0x... 
+ecli --rpc-url $RPC_URL get_block --block-hash 0x... 
 
 # Latest block
 ecli --rpc-url $RPC_URL get_latest_block 
 
 # Include full transaction list
-ecli --rpc-url $RPC_URL get_block --blockNumber latest --includeTransactions 
+ecli --rpc-url $RPC_URL get_block --block-number latest --include-transactions 
 ```
 
 ### Get Transaction Details
 ```bash
-ecli --rpc-url $RPC_URL get_transaction --txHash 0x... 
+ecli --rpc-url $RPC_URL get_transaction --tx-hash 0x... 
 # Returns: hash, from, to, value, gas, gasPrice, blockNumber, nonce, input
 ```
 
@@ -176,18 +176,18 @@ ecli --rpc-url $RPC_URL decode_calldata \
 ### Get Contract Events
 ```bash
 ecli --rpc-url $RPC_URL get_contract_logs \
-  --contractAddress 0x... \
-  --fromBlock 18000000 \
-  --toBlock 18001000 \
-  --eventAbis "event Transfer(address indexed from, address indexed to, uint256 value)" \
+  --contract-address 0x... \
+  --from-block 18000000 \
+  --to-block 18001000 \
+  --event-abis "event Transfer(address indexed from, address indexed to, uint256 value)" \
   
 ```
 
 ### Get Logs from Transaction
 ```bash
 ecli --rpc-url $RPC_URL get_transaction_logs \
-  --txHash 0x... \
-  --eventAbis "event Transfer(address indexed from, address indexed to, uint256 value)" \
+  --tx-hash 0x... \
+  --event-abis "event Transfer(address indexed from, address indexed to, uint256 value)" \
   
 ```
 
@@ -228,8 +228,8 @@ ecli --rpc-url $RPC_URL send_transaction \
   --to 0x... \
   --value "1000000000000000000" \
   --gas "21000" \
-  --maxFeePerGas "50000000000" \
-  --maxPriorityFeePerGas "2000000000" \
+  --max-fee-per-gas "50000000000" \
+  --max-priority-fee-per-gas "2000000000" \
   
 ```
 
@@ -240,7 +240,7 @@ result=$(ecli --rpc-url $RPC_URL send_transaction --to $TO --value "100000000000
 txHash=$(echo $result | jq -r '.transactionHash')
 
 # Wait for confirmation
-ecli --rpc-url $RPC_URL wait_for_transaction_confirmation --txHash $txHash 
+ecli --rpc-url $RPC_URL wait_for_transaction_confirmation --hash $txHash 
 ```
 
 ---
