@@ -1,5 +1,11 @@
 # tools-ethereum
 
+## 0.0.7
+
+### Patch Changes
+
+- use kebab-case options
+
 ## 0.0.6
 
 ### Patch Changes
