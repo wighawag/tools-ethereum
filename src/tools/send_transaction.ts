@@ -62,6 +62,7 @@ export const send_transaction = createTool<typeof schema, EthereumEnv>({
 		}
 
 		const txParams: any = {
+			account: env.walletClient.account!,
 			to: to as `0x${string}`,
 		};
 

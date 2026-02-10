@@ -17,6 +17,7 @@ export const sign_message = createTool<typeof schema, EthereumEnv>({
 		}
 
 		const signature = await env.walletClient.signMessage({
+			account: env.walletClient.account!,
 			message,
 		} as any);
 
